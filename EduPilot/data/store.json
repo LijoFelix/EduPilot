@@ -1,0 +1,38 @@
+{
+  "profile": {
+    "name": "Alex Student",
+    "level": "Undergraduate",
+    "subjects": [
+      "DBMS",
+      "Java",
+      "Computer Networks"
+    ],
+    "dailyMinutes": 90,
+    "goal": "Prepare confidently for upcoming exams",
+    "learningStyle": "Simple explanations"
+  },
+  "quizHistory": [],
+  "studyTasks": [
+    {
+      "id": "task-dbms",
+      "subject": "DBMS",
+      "topic": "Normalization",
+      "minutes": 30,
+      "completed": false
+    },
+    {
+      "id": "task-java",
+      "subject": "Java",
+      "topic": "OOP concepts",
+      "minutes": 30,
+      "completed": false
+    },
+    {
+      "id": "task-cn",
+      "subject": "Computer Networks",
+      "topic": "OSI model",
+      "minutes": 30,
+      "completed": false
+    }
+  ]
+}

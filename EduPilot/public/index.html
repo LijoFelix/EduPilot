@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="EduPilot is a context-aware AI smart learning assistant that helps students learn, practise and improve.">
+  <title>EduPilot — Smart Learning Assistant</title><link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <div class="shell">
+    <aside class="sidebar">
+      <a class="brand" href="#"><span class="brand-mark">E</span><span>EduPilot<small>SMART LEARNING</small></span></a>
+      <div class="nav-label">WORKSPACE</div>
+      <button class="nav active" data-view="dashboard"><span>▦</span> Overview</button>
+      <button class="nav" data-view="tutor"><span>✦</span> AI Tutor</button>
+      <button class="nav" data-view="planner"><span>◷</span> Study planner</button>
+      <button class="nav" data-view="quiz"><span>✓</span> Quiz & progress</button>
+      <div class="sidebar-bottom"><div class="mini-avatar" id="avatar">A</div><div><b id="side-name">Alex Student</b><small>Student account</small></div><button class="icon-button" id="settings" aria-label="Edit profile">⚙</button></div>
+    </aside>
+    <main class="main">
+      <header class="topbar"><div><div class="eyebrow">YOUR PERSONAL LEARNING SPACE</div><h1 id="page-title">Good morning, Alex <span>✦</span></h1><p id="page-subtitle">A little progress each day adds up to big results.</p></div><button class="profile-chip" id="edit-profile"><span class="mini-avatar">A</span><span id="top-name">Alex Student</span>⌄</button></header>
+      <section id="dashboard" class="view">
+        <div class="hero"><div><span class="pill light">✦ YOUR LEARNING, PERSONALIZED</span><h2>Make today a<br><em>learning win.</em></h2><p>Your learning companion adapts to your goals and progress. Let's keep moving forward.</p><button class="button white" data-go="tutor">Ask your AI tutor <span>→</span></button></div><div class="hero-art" aria-hidden="true"><div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="book">✧</div><div class="float-card">✦ <b>Keep growing</b><small>One topic at a time</small></div></div></div>
+        <div class="section-heading"><div><h2>Your learning snapshot</h2><p>Personalized insights from your activity</p></div><span class="muted" id="today"></span></div>
+        <div class="stats"><article class="stat-card"><span class="stat-icon purple">◈</span><small>QUIZZES COMPLETED</small><strong id="quiz-count">0</strong><span class="muted">Your practice history</span></article><article class="stat-card"><span class="stat-icon mint">↗</span><small>AVERAGE SCORE</small><strong id="average">—</strong><span class="muted">Across completed quizzes</span></article><article class="stat-card"><span class="stat-icon peach">◷</span><small>DAILY STUDY GOAL</small><strong id="daily-goal">90 <i>min</i></strong><span class="muted">Your planned learning time</span></article></div>
+        <div class="content-grid"><article class="panel"><div class="panel-head"><div><h3>Focus areas</h3><p>Subjects that may need your attention</p></div><span class="tiny-tag">BASED ON QUIZZES</span></div><div id="focus-list" class="focus-list"><div class="empty">Complete a quiz to discover your focus areas.</div></div></article><article class="panel"><div class="panel-head"><div><h3>Today's plan</h3><p>Small steps, meaningful progress</p></div><button class="text-button" data-go="planner">View plan →</button></div><div id="today-list" class="task-list"></div></article></div>
+      </section>
+      <section id="tutor" class="view hidden">
+        <div class="page-intro"><span class="pill">✦ PERSONALIZED AI</span><h2>Your AI learning companion</h2><p>Ask a question, explore a difficult concept, or request an example. Your profile helps tailor the explanation.</p></div>
+        <div class="chat-layout"><div class="chat-box"><div class="chat-head"><span class="online-dot"></span><div><b>EduPilot Tutor</b><small id="chat-mode">Ready to help you learn</small></div><span class="tiny-tag">STUDENT MODE</span></div><div id="messages" class="messages"><div class="message assistant"><span class="bot-avatar">✦</span><div><b>Hi there! I'm your EduPilot tutor.</b><p>What topic would you like to understand today? I can explain it in simple steps and give you examples.</p></div></div></div><div class="suggestions"><button class="suggestion">Explain DBMS normalization</button><button class="suggestion">Give me a Java example</button><button class="suggestion">Help me revise OS</button></div><form id="chat-form" class="chat-form"><input id="question" maxlength="1500" placeholder="Ask anything about your studies..." aria-label="Your question" required><button class="send-button" aria-label="Send question">↑</button></form><div class="disclaimer">AI can make mistakes. Verify important academic information with trusted learning materials.</div></div><aside class="panel tutor-tip"><span class="stat-icon purple">✧</span><h3>Learn actively</h3><p>Try asking “explain like I'm a beginner” or “give me a real-world example”.</p><div class="tip-line"></div><b>Your learning context</b><p id="context-summary">Undergraduate · Simple explanations</p></aside></div>
+      </section>
+      <section id="planner" class="view hidden">
+        <div class="page-intro"><span class="pill">◷ STAY CONSISTENT</span><h2>Your smart study planner</h2><p>Your plan prioritizes subjects with lower recent scores and balances your available study time.</p></div>
+        <div class="planner-banner"><div><b>Make a plan that fits your day.</b><p>Regenerate your plan whenever your progress changes.</p></div><button class="button primary" id="generate-plan">✦ Generate my plan</button></div>
+        <div id="planner-list" class="planner-list"></div>
+      </section>
+      <section id="quiz" class="view hidden">
+        <div class="page-intro"><span class="pill">✓ PRACTISE & IMPROVE</span><h2>Quiz and progress</h2><p>Record a practice score to help EduPilot understand what you know and what to revise next.</p></div>
+        <div class="content-grid quiz-grid"><article class="panel"><h3>Record a quiz result</h3><p>Enter the score from a quiz you have completed.</p><form id="quiz-form" class="stack-form"><label>Subject<select id="quiz-subject"></select></label><label>Topic<input id="quiz-topic" placeholder="e.g. Normalization" maxlength="80"></label><label>Score <output id="score-output">70%</output><input id="quiz-score" type="range" min="0" max="100" value="70"></label><button class="button primary">Save quiz result</button></form><div id="quiz-feedback" class="feedback hidden"></div></article><article class="panel"><h3>How you're progressing</h3><p>Your recent quiz scores</p><div id="score-chart" class="score-chart"><div class="empty">Your score history will appear here.</div></div></article></div>
+        <article class="panel history-panel"><div class="panel-head"><div><h3>Recent activity</h3><p>Your saved quiz attempts</p></div></div><div id="history-list"></div></article>
+      </section>
+      <footer>Made for curious minds <span>✦</span> <small>EduPilot · AI-assisted learning</small></footer>
+    </main>
+  </div>
+  <dialog id="profile-dialog"><form id="profile-form" class="profile-form"><div class="dialog-head"><div><span class="pill">YOUR PROFILE</span><h2>Personalize your learning</h2></div><button type="button" class="icon-button" id="close-dialog" aria-label="Close">✕</button></div><label>Your name<input id="profile-name" required maxlength="80"></label><label>Education level<select id="profile-level"><option>High school</option><option>Undergraduate</option><option>Postgraduate</option><option>Self learner</option></select></label><label>Subjects <small>Separate subjects with commas</small><input id="profile-subjects" required placeholder="DBMS, Java, Computer Networks"></label><label>Daily study time (minutes)<input id="profile-minutes" type="number" min="15" max="600" value="90"></label><label>Learning goal<input id="profile-goal" maxlength="200"></label><label>Preferred explanation style<select id="profile-style"><option>Simple explanations</option><option>Step-by-step examples</option><option>Visual and practical examples</option><option>Concise summaries</option></select></label><button class="button primary">Save profile</button></form></dialog>
+  <div id="toast" role="status" class="toast"></div>
+  <script src="/app.js" type="module"></script>
+</body></html>

@@ -1,0 +1,13 @@
+{
+  "name": "edupilot",
+  "version": "1.0.0",
+  "private": true,
+  "description": "A context-aware AI smart learning assistant for personalized education.",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js",
+    "test": "node --test"
+  },
+  "engines": { "node": ">=18" }
+}
